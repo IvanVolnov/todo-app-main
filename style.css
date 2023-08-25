@@ -1,0 +1,27 @@
+:root {
+  --color-primary: hsl(180, 29%, 50%);
+  --color-background: hsl(180, 52%, 96%);
+  --color-filter-tablets: hsl(180, 31%, 95%);
+  --color-dark-grayish: hsl(180, 8%, 52%);
+  --color-very-dark: hsl(180, 14%, 20%);
+  --color-content-block: white;
+}
+/* RESET CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+a:visited {
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
