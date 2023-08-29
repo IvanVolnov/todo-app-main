@@ -11,20 +11,109 @@
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
-
     <title>Frontend Mentor | Todo app</title>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <link rel="stylesheet" href="style.css" />
     <script defer="" src="script.js"></script>
   </head>
   <body>
-    Todo
-
-    <!-- Add dynamic number -->
-    items left All Active Completed Clear Completed Drag and drop to reorder
-    list
-
+    <header>
+      <span id="logo">TODO</span>
+      <img
+        class="mode-toggler"
+        src="images\icon-sun.svg"
+        alt="toggle light/dark mode"
+      />
+    </header>
+    <main>
+      <form class="content-block" id="input">
+        <input id="new-todo-btn" type="submit" value="submit" />
+        <input
+        id="new-todo-text"
+        type="text"
+        placeholder="Create a new todo..."
+        />
+      </form>
+      <!-- start of todos -->
+      <div class="content-block">
+        <form class="task-container" autocomplete="off">
+          <div class="task-left">
+            <input type="checkbox" class="task" name="task" checked
+            <label for="task">Complete online JavaScript course</label>
+          </div>
+          <img
+            class="close-icon"
+            src="images\icon-cross.svg"
+            alt="delete todo"
+          />
+        </form>
+        <form class="task-container" autocomplete="off">
+          <div class="task-left">
+            <input type="checkbox" class="task" name="task"/>
+            <label for="task">Jog around the park 3x</label>
+          </div>
+          <img
+            class="close-icon"
+            src="images\icon-cross.svg"
+            alt="delete todo"
+          />
+        </form>
+        <form class="task-container" autocomplete="off">
+          <div class="task-left">
+            <input type="checkbox" class="task" name="task"/>
+            <label for="task">10 minutes meditation</label>
+          </div>
+          <img
+            class="close-icon"
+            src="images\icon-cross.svg"
+            alt="delete todo"
+          />
+        </form>
+        <form class="task-container" autocomplete="off">
+          <div class="task-left">
+            <input type="checkbox" class="task" name="task"/>
+            <label for="task">Read for 1 hour</label>
+          </div>
+          <img
+            class="close-icon"
+            src="images\icon-cross.svg"
+            alt="delete todo"
+          />
+        </form>
+        <form class="task-container" autocomplete="off">
+          <div class="task-left">
+            <input type="checkbox" class="task" name="task"/>
+            <label for="task">Pick up groceries</label>
+          </div>
+          <img
+            class="close-icon"
+            src="images\icon-cross.svg"
+            alt="delete todo"
+          />
+        </form>
+        <form class="task-container" autocomplete="off">
+          <div class="task-left">
+            <input type="checkbox" class="task" name="task"/>
+            <label for="task">Complete Todo App on Frontend Mentor</label>
+          </div>
+          <img
+            class="close-icon"
+            src="images\icon-cross.svg"
+            alt="delete todo"
+          />
+        </form>
+        <!-- finish of todos -->
+        <div class = 'bottom-menu-container'>
+          <div id="counter">5 items left</div>
+          <div id = 'toggle-container'>
+            <a href="#" class="toggle=btn">All</a>
+            <a href="#" class="toggle=btn">Active</a>
+            <a href="#" class="toggle=btn">Completed</a>
+          </div>
+          <a href="#" id="clear=btn">Clear Completed</a>
+        </div>
+        <div id = 'help-sign'>Drag and drop to reorder list</div>
+      </div>
+    </main>
     <footer class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"

@@ -1,10 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&display=swap");
+
 :root {
-  --color-primary: hsl(180, 29%, 50%);
-  --color-background: hsl(180, 52%, 96%);
-  --color-filter-tablets: hsl(180, 31%, 95%);
-  --color-dark-grayish: hsl(180, 8%, 52%);
-  --color-very-dark: hsl(180, 14%, 20%);
-  --color-content-block: white;
+  --color-background: hsl(180, 29%, 50%);
+  --color-blocks-background: hsl(180, 52%, 96%);
+  --color-text: hsl(180, 31%, 95%);
+  --color-text-hover: hsl(180, 8%, 52%);
+  --color-text-task: hsl(180, 14%, 20%);
+  --color-logo: white;
 }
 /* RESET CSS */
 * {
@@ -24,4 +26,12 @@ a:visited {
 }
 ul {
   list-style: none;
+}
+
+/* main part */
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
