@@ -1,23 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&display=swap");
 
+/*setting light and dark mode colors*/
 :root {
-  --color-background: hsl(180, 29%, 50%);
+  --color-background: hsl(0, 0%, 98%);
   --color-blocks-background: hsl(180, 52%, 96%);
   --color-text: hsl(180, 31%, 95%);
   --color-text-hover: hsl(180, 8%, 52%);
   --color-text-task: hsl(180, 14%, 20%);
   --color-logo: white;
-}
-/* RESET CSS */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
+  --img-background-mobile: url(images/bg-mobile-light.jpg);
+  --img-background-desktop: url(images/bg-desktop-light.jpg);
 }
 
-html {
+.dark-mode {
+  --color-background: hsl(235, 24%, 19%);
+  --img-background-mobile: url(images/bg-mobile-dark.jpg);
+  --img-background-desktop: url(images/bg-desktop-dark.jpg);
+}
+
+/* RESET CSS */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
+
 a {
   text-decoration: none;
 }
@@ -31,7 +40,47 @@ ul {
 /* main part */
 
 body {
+  min-height: 100vh;
+  min-height: 100svh;
+  background: top left no-repeat var(--img-background-mobile),
+    var(--color-background);
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 81.3%;
+}
+/* Top part */
+header {
+  min-width: 20.4rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin: 3.46em 0rem 2.4em;
+}
+
+#logo {
+  color: var(--color-logo);
+  font-weight: 600;
+  height: fit-content;
+  letter-spacing: 0.41em;
+  font-size: 199%;
+}
+
+.mode-toggler {
+  height: 1.25rem;
+  width: 1.25rem;
+  margin-top: 0.2rem;
+}
+/* main part */
+
+/* Media queries */
+
+@media only screen and (min-width: 376px) {
+  body {
+    background: top left no-repeat var(--img-background-desktop),
+      var(--color-background);
+    font-size: 112.5%;
+  }
 }
