@@ -2,18 +2,24 @@
 
 /*setting light and dark mode colors*/
 :root {
+  --color-active: hsl(220, 98%, 61%);
+  --gradient-checkbox: hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+  --color-crossed-text: hsl(236, 33%, 92%);
+  --color-text: hsl(233, 11%, 84%);
+  --color-logo: white;
+  /* dynamic colors */
   --color-background: hsl(0, 0%, 98%);
   --color-blocks-background: hsl(180, 52%, 96%);
-  --color-text: hsl(180, 31%, 95%);
-  --color-text-hover: hsl(180, 8%, 52%);
-  --color-text-task: hsl(180, 14%, 20%);
-  --color-logo: white;
+  --color-text-todos-hover: hsl(235, 19%, 35%);
   --img-background-mobile: url(images/bg-mobile-light.jpg);
   --img-background-desktop: url(images/bg-desktop-light.jpg);
 }
 
 .dark-mode {
-  --color-background: hsl(235, 24%, 19%);
+  --color-background: hsl(235, 21%, 11%);
+  --color-blocks-background: hsl(235, 24%, 19%);
+  --color-text-todos: hsl(234, 39%, 85%);
+  --color-hover-dark: hsl(236, 33%, 92%);
   --img-background-mobile: url(images/bg-mobile-dark.jpg);
   --img-background-desktop: url(images/bg-desktop-dark.jpg);
 }
@@ -49,6 +55,7 @@ body {
   align-items: center;
   font-family: "Josefin Sans", sans-serif;
   font-size: 81.3%;
+  color: var(--color-text);
 }
 /* Top part */
 header {
