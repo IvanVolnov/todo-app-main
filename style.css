@@ -9,7 +9,7 @@
   --color-logo: white;
   /* dynamic colors */
   --color-background: hsl(0, 0%, 98%);
-  --color-blocks-background: hsl(180, 52%, 96%);
+  --color-blocks-background: white;
   --color-text-todos-hover: hsl(235, 19%, 35%);
   --img-background-mobile: url(images/bg-mobile-light.jpg);
   --img-background-desktop: url(images/bg-desktop-light.jpg);
@@ -81,7 +81,15 @@ header {
   margin-top: 0.2rem;
 }
 /* main part */
+.content-block {
+  background-color: var(--color-blocks-background);
+}
 
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 /* Media queries */
 
 @media only screen and (min-width: 376px) {
