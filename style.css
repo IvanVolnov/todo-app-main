@@ -3,9 +3,9 @@
 /*setting light and dark mode colors*/
 :root {
   --color-active: hsl(220, 98%, 61%);
-  --gradient-checkbox: hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+  --gradient-checkbox: hsl(192, 100%, 67%), hsl(280, 87%, 65%);
   --color-crossed-text: hsl(236, 33%, 92%);
-  --color-text: hsl(233, 11%, 84%);
+  --color-text: hsl(236, 9%, 61%);
   --color-logo: white;
   /* dynamic colors */
   --color-background: hsl(0, 0%, 98%);
@@ -48,7 +48,7 @@ ul {
 body {
   min-height: 100vh;
   min-height: 100svh;
-  background: top left no-repeat var(--img-background-mobile),
+  background: top no-repeat var(--img-background-mobile),
     var(--color-background);
   display: flex;
   flex-direction: column;
@@ -80,16 +80,57 @@ header {
   width: 1.25rem;
   margin-top: 0.2rem;
 }
-/* main part */
-.content-block {
-  background-color: var(--color-blocks-background);
-}
 
+/* main part */
 main {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
+.content-block {
+  min-width: 20.4rem;
+  background-color: var(--color-blocks-background);
+  padding: 0.92rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+/* Input feild */
+#input {
+  display: flex;
+  flex-direction: row;
+  gap: 0.7rem;
+}
+#new-todo-btn {
+  cursor: pointer;
+  width: 1.4rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background: linear-gradient(
+        var(--color-blocks-background),
+        var(--color-blocks-background)
+      )
+      padding-box,
+    linear-gradient(var(--gradient-checkbox)) border-box;
+  border: 1px solid transparent;
+}
+#new-todo-text {
+  border: none;
+  width: 100%;
+}
+#new-todo-text:focus {
+  outline: none;
+}
+#new-todo-text::placeholder {
+  color: var(--color-text);
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 88.3%;
+  /* word-spacing: -0.2rem; */
+}
+/* Todos Feild */
 /* Media queries */
 
 @media only screen and (min-width: 376px) {
