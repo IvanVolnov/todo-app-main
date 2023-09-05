@@ -38,6 +38,7 @@
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 a:visited {
   color: inherit;
@@ -54,30 +55,27 @@ html {
 body {
   min-height: 100vh;
   min-height: 100svh;
-  background: top no-repeat var(--img-background-mobile),
+  background: top center no-repeat var(--img-background-mobile),
     var(--color-background);
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: "Josefin Sans", sans-serif;
-  /* font-size: 75%; */
   color: var(--color-text);
 }
 /* Top part */
 header {
-  min-width: 27.25rem;
+  min-width: min(87.2vw, 45rem);
   display: flex;
   justify-content: space-between;
-  align-items: start;
-  margin: 4em 0rem 2.6em;
+  margin: 4em 0rem 2.75em;
 }
 
 #logo {
   color: var(--color-logo);
   font-weight: 600;
-  height: min-content;
-  letter-spacing: 0.38em;
-  font-size: 2.1rem;
+  letter-spacing: 0.4em;
+  font-size: 2.2rem;
 }
 
 .mode-toggler {
@@ -89,15 +87,14 @@ header {
 main {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  /* gap: 2rem; */
 }
 .content-block {
-  min-width: 27.25rem;
+  min-width: min(87.2vw, 45rem);
   background-color: var(--color-blocks-background);
-  padding: 1.67rem 1.17rem;
+  padding: 1.17rem 1.67rem;
   display: flex;
   flex-direction: column;
-  align-items: left;
   justify-content: center;
   border-radius: 0.41667rem;
   box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
@@ -105,9 +102,9 @@ main {
 
 /* Input feild */
 #input {
-  display: flex;
   flex-direction: row;
-  gap: 0.7rem;
+  gap: 1.1rem;
+  margin-bottom: 1.33rem;
 }
 #new-todo-btn {
   cursor: pointer;
@@ -124,7 +121,7 @@ main {
 }
 #new-todo-text {
   border: none;
-  width: 100%;
+  flex: 1 1;
   font-family: "Josefin Sans", sans-serif;
   font-size: 12px;
   letter-spacing: -0.01392rem;
@@ -135,15 +132,30 @@ main {
 }
 #new-todo-text::placeholder {
   color: var(--color-text);
-
-  /* word-spacing: -0.2rem; */
 }
 /* Todos Feild */
+.main-feild {
+  gap: 2.75rem;
+  color: var(--color-text-todos);
+}
+.task-container {
+  display: flex;
+  justify-content: space-between;
+}
+.task-left {
+  display: flex;
+  gap: 1rem;
+}
+.close-icon {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
 /* Media queries */
 
 @media only screen and (min-width: 376px) {
   body {
-    background: top left no-repeat var(--img-background-desktop),
+    background: top center no-repeat var(--img-background-desktop),
       var(--color-background);
     font-size: 112.5%;
   }
