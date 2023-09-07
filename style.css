@@ -12,6 +12,7 @@
   --color-blocks-background: hsla(0, 0%, 100%, 1);
   --color-text-todos: hsl(235, 19%, 35%);
   --color-text-hover: hsl(235, 19%, 35%);
+  --color-border-task: hsla(236, 32%, 92%, 1);
   --img-background-mobile: url(images/bg-mobile-light.jpg);
   --img-background-desktop: url(images/bg-desktop-light.jpg);
 }
@@ -23,6 +24,7 @@
   --color-blocks-background: hsl(235, 24%, 19%);
   --color-text-todos: hsla(235, 39%, 85%, 1);
   --color-text-hover: hsla(236, 32%, 92%, 1);
+  --color-border-task: hsla(237, 14%, 26%, 1);
   --img-background-mobile: url(images/bg-mobile-dark.jpg);
   --img-background-desktop: url(images/bg-desktop-dark.jpg);
 }
@@ -92,7 +94,7 @@ main {
 .content-block {
   min-width: min(87.2vw, 45rem);
   background-color: var(--color-blocks-background);
-  padding: 1.17rem 1.67rem;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -103,8 +105,9 @@ main {
 /* Input feild */
 #input {
   flex-direction: row;
-  gap: 1.1rem;
+  gap: 1rem;
   margin-bottom: 1.33rem;
+  padding: 1.17rem 1.67rem;
 }
 #new-todo-btn {
   cursor: pointer;
@@ -135,21 +138,64 @@ main {
 }
 /* Todos Feild */
 .main-feild {
-  gap: 2.75rem;
+  /* gap: 2rem; */
+  letter-spacing: -0.01392rem;
   color: var(--color-text-todos);
-}
-.task-container {
-  display: flex;
-  justify-content: space-between;
 }
 .task-left {
   display: flex;
   gap: 1rem;
 }
+.task-text {
+  position: relative;
+  top: 0.3rem;
+}
 .close-icon {
   width: 1rem;
   height: 1rem;
   cursor: pointer;
+}
+/* Tasks */
+.task-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.33rem 1.67rem;
+  width: 100%;
+  border-bottom: 1px solid var(--color-border-task);
+}
+
+input[type="checkbox"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  margin: 0;
+  /* new checkbox styling */
+  cursor: pointer;
+}
+
+input[type="checkbox"]::before {
+  content: url(images/icon-check.svg);
+  display: grid;
+  place-content: center;
+  /* align-items: center; */
+  width: 1.66667rem;
+  height: 1.66667rem;
+  border-radius: 50%;
+  background: linear-gradient(
+        var(--color-blocks-background),
+        var(--color-blocks-background)
+      )
+      padding-box,
+    linear-gradient(var(--gradient-checkbox)) border-box;
+  border: 1px solid transparent;
+}
+input[type="checkbox"]:checked::before {
+  background: linear-gradient(var(--gradient-checkbox));
+  border: 0px solid transparent;
 }
 /* Media queries */
 

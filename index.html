@@ -18,29 +18,30 @@
   <body>
     <header>
       <span id="logo">TODO</span>
-      <img
-        class="mode-toggler"
-        src="images\icon-moon.svg"
-        alt="toggle light/dark mode"
-      />
+      <a href="#" class="mode-link">
+        <img
+          class="mode-toggler"
+          src="images\icon-moon.svg"
+          alt="toggle light/dark mode"
+      /></a>
     </header>
     <main>
       <form class="content-block" id="input">
         <input id="new-todo-btn" type="submit" value="" />
         <input
-        id="new-todo-text"
-        type="text"
-        placeholder="Create a new todo..."
-        required 
+          id="new-todo-text"
+          type="text"
+          placeholder="Create a new todo..."
+          required
         />
       </form>
       <!-- start of todos -->
       <div class="content-block main-feild">
         <form class="task-container" autocomplete="off">
-          <div class="task-left">
-            <input type="checkbox" class="task" name="task" checked
-            <label for="task">Complete online JavaScript course</label>
-          </div>
+          <label class="task-left">
+            <input type="checkbox" class="checkbox" name="checkbox" checked />
+            <p class="task-text">Complete online JavaScript course</p>
+          </label>
           <img
             class="close-icon"
             src="images\icon-cross.svg"
@@ -48,10 +49,10 @@
           />
         </form>
         <form class="task-container" autocomplete="off">
-          <div class="task-left">
-            <input type="checkbox" class="task" name="task"/>
-            <label for="task">Jog around the park 3x</label>
-          </div>
+          <label class="task-left">
+            <input type="checkbox" class="checkbox" name="checkbox" />
+            <p class="task-text">Jog around the park 3x</p>
+          </label>
           <img
             class="close-icon"
             src="images\icon-cross.svg"
@@ -59,10 +60,10 @@
           />
         </form>
         <form class="task-container" autocomplete="off">
-          <div class="task-left">
-            <input type="checkbox" class="task" name="task"/>
-            <label for="task">10 minutes meditation</label>
-          </div>
+          <label class="task-left">
+            <input type="checkbox" class="checkbox" name="checkbox" />
+            <p class="task-text">10 minutes meditation</p>
+          </label>
           <img
             class="close-icon"
             src="images\icon-cross.svg"
@@ -70,10 +71,10 @@
           />
         </form>
         <form class="task-container" autocomplete="off">
-          <div class="task-left">
-            <input type="checkbox" class="task" name="task"/>
-            <label for="task">Read for 1 hour</label>
-          </div>
+          <label class="task-left">
+            <input type="checkbox" class="checkbox" name="checkbox" />
+            <p class="task-text">Read for 1 hour</p>
+          </label>
           <img
             class="close-icon"
             src="images\icon-cross.svg"
@@ -81,10 +82,10 @@
           />
         </form>
         <form class="task-container" autocomplete="off">
-          <div class="task-left">
-            <input type="checkbox" class="task" name="task"/>
-            <label for="task">Pick up groceries</label>
-          </div>
+          <label class="task-left">
+            <input type="checkbox" class="checkbox" name="checkbox" />
+            <p class="task-text">Pick up groceries</p>
+          </label>
           <img
             class="close-icon"
             src="images\icon-cross.svg"
@@ -92,10 +93,10 @@
           />
         </form>
         <form class="task-container" autocomplete="off">
-          <div class="task-left">
-            <input type="checkbox" class="task" name="task"/>
-            <label for="task">Complete Todo App on Frontend Mentor</label>
-          </div>
+          <label class="task-left">
+            <input type="checkbox" class="checkbox" name="checkbox" />
+            <p class="task-text">Complete Todo App on Frontend Mentor</p>
+          </label>
           <img
             class="close-icon"
             src="images\icon-cross.svg"
@@ -103,9 +104,9 @@
           />
         </form>
         <!-- finish of todos -->
-        <div class = 'bottom-menu-container'>
+        <div class="bottom-menu-container">
           <div id="counter">5 items left</div>
-          <div id = 'toggle-container'>
+          <div id="toggle-container">
             <a href="#" class="toggle=btn">All</a>
             <a href="#" class="toggle=btn">Active</a>
             <a href="#" class="toggle=btn">Completed</a>
@@ -113,7 +114,7 @@
           <a href="#" id="clear=btn">Clear Completed</a>
         </div>
       </div>
-      <div id = 'help-sign'>Drag and drop to reorder list</div>
+      <div id="help-sign">Drag and drop to reorder list</div>
     </main>
     <footer class="attribution">
       Challenge by
