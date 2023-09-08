@@ -92,9 +92,7 @@ main {
   /* gap: 2rem; */
 }
 .content-block {
-  min-width: min(87.2vw, 45rem);
   background-color: var(--color-blocks-background);
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -104,6 +102,7 @@ main {
 
 /* Input feild */
 #input {
+  min-width: min(87.2vw, 45rem);
   flex-direction: row;
   gap: 1rem;
   margin-bottom: 1.33rem;
@@ -126,7 +125,6 @@ main {
   border: none;
   flex: 1 1;
   font-family: "Josefin Sans", sans-serif;
-  font-size: 12px;
   letter-spacing: -0.01392rem;
   color: var(--color-text-todos);
 }
@@ -138,9 +136,9 @@ main {
 }
 /* Todos Feild */
 .main-feild {
-  /* gap: 2rem; */
   letter-spacing: -0.01392rem;
   color: var(--color-text-todos);
+  border-radius: 0.41667rem 0.41667rem 0 0;
 }
 .task-left {
   display: flex;
@@ -149,6 +147,14 @@ main {
 .task-text {
   position: relative;
   top: 0.3rem;
+}
+.task-text__checked {
+  color: var(--color-crossed-text);
+  text-decoration: line-through;
+}
+.delete-todo-link {
+  position: relative;
+  top: 0.2rem;
 }
 .close-icon {
   width: 1rem;
@@ -180,8 +186,9 @@ input[type="checkbox"] {
 input[type="checkbox"]::before {
   content: url(images/icon-check.svg);
   display: grid;
-  place-content: center;
-  /* align-items: center; */
+  justify-content: center;
+  align-items: center;
+  padding-left: 0.1rem;
   width: 1.66667rem;
   height: 1.66667rem;
   border-radius: 50%;
@@ -196,6 +203,54 @@ input[type="checkbox"]::before {
 input[type="checkbox"]:checked::before {
   background: linear-gradient(var(--gradient-checkbox));
   border: 0px solid transparent;
+}
+
+/* Bottom part with todos sorter and counter */
+.bottom-menu-container {
+  min-width: min(87.2vw, 45rem);
+  display: grid;
+  grid-template-columns: max-content auto max-content;
+  grid-template-rows: repeat(2, 1fr);
+  grid-row-gap: 1.33em;
+}
+#clear-counter-wrapper {
+  grid-area: 1 / 1 / 1 / 4;
+  border-radius: 0 0 0.41667rem 0.41667rem;
+}
+#counter {
+  grid-area: 1 / 1 / 2 / 2;
+  padding: 1.4rem 1.6rem 1.6rem;
+  letter-spacing: -0.01392rem;
+}
+
+#clear-btn {
+  grid-area: 1 / 3 / 2 / 4;
+  padding: 1.4rem 1.6rem 1.6rem;
+  letter-spacing: -0.01392rem;
+}
+#toggle-container {
+  grid-area: 2 / 1 / 3 / 4;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.58333rem;
+  /* padding: 1.4rem 0rem 1.6rem; */
+}
+.toggle-btn {
+  font-size: 1.16667rem;
+  font-weight: 700;
+  letter-spacing: -0.01617rem;
+}
+/* Help information text on the bottom */
+#help-sign {
+  margin: 3.35rem 0rem;
+  font-size: 1.16667rem;
+  letter-spacing: -0.01617rem;
+}
+/* Attribution */
+.attribution_link,
+.attribution_link:visited {
+  color: var(--color-text-todos);
 }
 /* Media queries */
 
