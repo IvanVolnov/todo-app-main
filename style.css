@@ -125,6 +125,7 @@ main {
   border: none;
   flex: 1 1;
   font-family: "Josefin Sans", sans-serif;
+  font-size: 1rem;
   letter-spacing: -0.01392rem;
   color: var(--color-text-todos);
 }
@@ -254,10 +255,65 @@ input[type="checkbox"]:checked::before {
 }
 /* Media queries */
 
+/* change behavior for hover devises */
+
+@media (any-hover: hover) {
+  a:hover {
+    color: var(--color-text-hover);
+  }
+  .checkbox {
+    opacity: 0.6;
+  }
+  .checkbox:hover,
+  .checkbox:checked {
+    opacity: 1;
+  }
+  .task-left:hover {
+    cursor: pointer;
+  }
+  .delete-todo-link {
+    display: none;
+  }
+  .task-container:hover .delete-todo-link {
+    display: block;
+  }
+}
+
+/* for dimentions */
+
 @media only screen and (min-width: 376px) {
+  html {
+    font-size: 116.7%;
+  }
   body {
     background: top center no-repeat var(--img-background-desktop),
       var(--color-background);
-    font-size: 112.5%;
+  }
+}
+
+@media only screen and (min-width: 650px) {
+  header {
+    margin: 5.3em 0rem 2.56em;
+  }
+  #logo {
+    font-size: 2.85714rem;
+
+    letter-spacing: 1.07143rem;
+  }
+  .mode-toggler {
+    position: relative;
+    top: 0.5em;
+    width: 2.09275rem;
+    height: 2.16667rem;
+  }
+  .task-text,
+  #new-todo-text,
+  #new-todo-text::placeholder {
+    font-size: 1.28571rem;
+  }
+  #new-todo-btn,
+  input[type="checkbox"]::before {
+    width: 2.1rem;
+    height: 2.1rem;
   }
 }
