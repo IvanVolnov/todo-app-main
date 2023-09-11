@@ -2,6 +2,7 @@
 
 /*setting light and dark mode colors*/
 :root {
+  --width-global: min(38.57143rem, 87.2vw);
   --color-active: hsl(220, 98%, 61%);
   --gradient-checkbox: hsl(192, 100%, 67%), hsl(280, 87%, 65%);
   --color-logo: hsla(0, 0%, 100%, 1);
@@ -17,7 +18,7 @@
   --img-background-desktop: url(images/bg-desktop-light.jpg);
 }
 
-.dark-mode {
+.darkmode {
   --color-crossed-text: hsla(233, 14%, 35%, 1);
   --color-text: hsla(235, 16%, 42%, 1);
   --color-background: hsl(235, 21%, 11%);
@@ -67,7 +68,7 @@ body {
 }
 /* Top part */
 header {
-  min-width: min(87.2vw, 45rem);
+  min-width: var(--width-global);
   display: flex;
   justify-content: space-between;
   margin: 4em 0rem 2.75em;
@@ -102,7 +103,7 @@ main {
 
 /* Input feild */
 #input {
-  min-width: min(87.2vw, 45rem);
+  min-width: var(--width-global);
   flex-direction: row;
   gap: 1rem;
   margin-bottom: 1.33rem;
@@ -208,7 +209,7 @@ input[type="checkbox"]:checked::before {
 
 /* Bottom part with todos sorter and counter */
 .bottom-menu-container {
-  min-width: min(87.2vw, 45rem);
+  min-width: var(--width-global);
   display: grid;
   grid-template-columns: max-content auto max-content;
   grid-template-rows: repeat(2, 1fr);
@@ -282,9 +283,6 @@ input[type="checkbox"]:checked::before {
 /* for dimentions */
 
 @media only screen and (min-width: 376px) {
-  html {
-    font-size: 116.7%;
-  }
   body {
     background: top center no-repeat var(--img-background-desktop),
       var(--color-background);
@@ -292,28 +290,68 @@ input[type="checkbox"]:checked::before {
 }
 
 @media only screen and (min-width: 650px) {
+  html {
+    font-size: 87.5%;
+  }
   header {
     margin: 5.3em 0rem 2.56em;
   }
   #logo {
     font-size: 2.85714rem;
-
     letter-spacing: 1.07143rem;
   }
   .mode-toggler {
     position: relative;
     top: 0.5em;
-    width: 2.09275rem;
-    height: 2.16667rem;
+    width: 1.79379rem;
+    height: 1.85714rem;
   }
+  #input {
+    gap: 1.66rem;
+    margin-bottom: 1.71rem;
+    padding: 1.44rem 1.74rem;
+  }
+
+  /* .main-feild {
+    padding-top: 0.5rem;
+  } */
+
+  .task-container {
+    padding: 1.41rem 1.71rem;
+  }
+
+  .task-left {
+    gap: 1.71rem;
+  }
+
   .task-text,
   #new-todo-text,
   #new-todo-text::placeholder {
     font-size: 1.28571rem;
+    letter-spacing: -0.01786rem;
   }
   #new-todo-btn,
   input[type="checkbox"]::before {
-    width: 2.1rem;
-    height: 2.1rem;
+    width: 1.71429rem;
+    height: 1.71429rem;
+  }
+
+  .bottom-menu-container {
+    grid-template-rows: none;
+  }
+
+  #toggle-container {
+    grid-area: 1/2/2/3;
+    padding-left: 2.9rem;
+    gap: 1.38rem;
+  }
+
+  .toggle-btn {
+    font-size: 1rem;
+  }
+
+  #help-sign {
+    font-size: 1rem;
+    letter-spacing: -0.01386rem;
   }
 }
