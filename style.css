@@ -14,8 +14,10 @@
   --color-text-todos: hsl(235, 19%, 35%);
   --color-text-hover: hsl(235, 19%, 35%);
   --color-border-task: hsla(236, 32%, 92%, 1);
+  --color-block-shadow: rgba(194, 195, 214, 0.5);
   --img-background-mobile: url(images/bg-mobile-light.jpg);
   --img-background-desktop: url(images/bg-desktop-light.jpg);
+  --img-mode-toggler: url(images/icon-moon.svg);
 }
 
 .darkmode {
@@ -26,8 +28,10 @@
   --color-text-todos: hsla(235, 39%, 85%, 1);
   --color-text-hover: hsla(236, 32%, 92%, 1);
   --color-border-task: hsla(237, 14%, 26%, 1);
+  --color-block-shadow: rgba(0, 0, 0, 0.5);
   --img-background-mobile: url(images/bg-mobile-dark.jpg);
   --img-background-desktop: url(images/bg-desktop-dark.jpg);
+  --img-mode-toggler: url(images/icon-sun.svg);
 }
 
 /* RESET CSS */
@@ -81,7 +85,9 @@ header {
   font-size: 2.2rem;
 }
 
-.mode-toggler {
+.mode-link {
+  background-image: var(--img-mode-toggler);
+  background-size: contain;
   width: 1.60975rem;
   height: 1.66667rem;
 }
@@ -98,7 +104,7 @@ main {
   flex-direction: column;
   justify-content: center;
   border-radius: 0.41667rem;
-  box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  box-shadow: 0px 35px 50px -15px var(--color-block-shadow);
 }
 
 /* Input feild */
@@ -129,6 +135,7 @@ main {
   font-size: 1rem;
   letter-spacing: -0.01392rem;
   color: var(--color-text-todos);
+  background-color: transparent;
 }
 #new-todo-text:focus {
   outline: none;
@@ -177,16 +184,12 @@ input[type="checkbox"] {
   /* Add if not using autoprefixer */
   -webkit-appearance: none;
   appearance: none;
-  /* For iOS < 15 to remove gradient background */
-  background-color: #fff;
-  /* Not removed via appearance */
   margin: 0;
-  /* new checkbox styling */
   cursor: pointer;
 }
 
 input[type="checkbox"]::before {
-  content: url(images/icon-check.svg);
+  content: "";
   display: grid;
   justify-content: center;
   align-items: center;
@@ -203,6 +206,7 @@ input[type="checkbox"]::before {
   border: 1px solid transparent;
 }
 input[type="checkbox"]:checked::before {
+  content: url(images/icon-check.svg);
   background: linear-gradient(var(--gradient-checkbox));
   border: 0px solid transparent;
 }
@@ -300,7 +304,7 @@ input[type="checkbox"]:checked::before {
     font-size: 2.85714rem;
     letter-spacing: 1.07143rem;
   }
-  .mode-toggler {
+  .mode-link {
     position: relative;
     top: 0.5em;
     width: 1.79379rem;
@@ -344,6 +348,7 @@ input[type="checkbox"]:checked::before {
     grid-area: 1/2/2/3;
     padding-left: 2.9rem;
     gap: 1.38rem;
+    box-shadow: none;
   }
 
   .toggle-btn {
