@@ -47,9 +47,9 @@ a {
   text-decoration: none;
   color: inherit;
 }
-a:visited {
+/* a:visited {
   color: inherit;
-}
+} */
 ul {
   list-style: none;
 }
@@ -246,6 +246,9 @@ input[type="checkbox"]:checked::before {
   font-size: 1.16667rem;
   font-weight: 700;
   letter-spacing: -0.01617rem;
+}
+.toggle-btn__active {
+  color: var(--color-active);
 }
 /* Help information text on the bottom */
 #help-sign {

@@ -18,9 +18,8 @@ const disableDarkMode = function () {
   localStorage.setItem("darkMode", "disabled");
 };
 
-// If there is no information on localStorage, then set colot mode depending of system color scheme
+// If there is no information on localStorage, then set color mode depending of system color scheme
 if (!darkMode) {
-  console.log("localstorage os empty");
   darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "enabled"
     : "disabled";
@@ -33,9 +32,7 @@ btnColorToggler.addEventListener("click", () => {
   darkMode = localStorage.getItem("darkMode");
   if (darkMode !== "enabled") {
     enableDarkMode();
-    console.log("dark on");
   } else {
     disableDarkMode();
-    console.log("dark off");
   }
 });
