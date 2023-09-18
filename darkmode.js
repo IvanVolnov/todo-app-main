@@ -1,11 +1,7 @@
 // setting selector for mode switcher
 const btnColorToggler = document.querySelector(".mode-link");
 
-// Color theme toggler
-// Check prefered color scheme of the browser
-// let browserDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-// console.log(browserDarkMode, "browser");
+// variable to store dark mode state
 let darkMode = localStorage.getItem("darkMode");
 
 const enableDarkMode = function () {
@@ -25,10 +21,11 @@ if (!darkMode) {
     : "disabled";
 }
 
-// Switch theme when after loading the page, depanding the state of localStorage
+// Switch theme after loading the page, depending of the state of localStorage
 if (darkMode === "enabled") enableDarkMode();
 
-btnColorToggler.addEventListener("click", () => {
+btnColorToggler.addEventListener("click", (e) => {
+  e.preventDefault();
   darkMode = localStorage.getItem("darkMode");
   if (darkMode !== "enabled") {
     enableDarkMode();

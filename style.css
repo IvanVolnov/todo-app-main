@@ -266,17 +266,20 @@ input[type="checkbox"]:checked::before {
 /* change behavior for hover devises */
 
 @media (any-hover: hover) {
-  a:hover {
+  a:hover,
+  :focus-visible {
     color: var(--color-text-hover);
   }
   .checkbox {
     opacity: 0.6;
   }
   .checkbox:hover,
+  :focus,
   .checkbox:checked {
     opacity: 1;
   }
-  .task-left:hover {
+  .task-left:hover,
+  :focus {
     cursor: pointer;
   }
   .delete-todo-link {
