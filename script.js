@@ -8,6 +8,7 @@ const mainFeild = document.querySelector(".main-feild");
 const btnClearCompleted = document.getElementById("clear-btn");
 const formNewTodo = document.getElementById("input");
 const counter = document.getElementById("counter");
+// const allDraggables = document.querySelectorAll(".task-container");
 
 // variables
 let modeStatus = "All";
@@ -49,6 +50,40 @@ const updateCounter = function () {
   counter.innerHTML = `${data.filter((x) => !x.completed).length} items left`;
 };
 
+// Drag and Drop
+
+const dragEnter = function (e) {
+  const index = +e.target.getAttribute("order");
+  console.log("dragenter", index);
+  e.target.insertAdjacentHTML(
+    "beforebegin",
+    `<div class="task-container__placeholder"></div>`
+  );
+  // data.splice(index, 0, "sfdgfds");
+  // renderTodos();
+};
+
+const dragLeave = function (e) {
+  console.log("dragleave", e.target);
+  e.target.previousSibling.innerHTML = "";
+};
+
+const attachDragEvents = function () {
+  const allDraggables = document.querySelectorAll(".task-container");
+  allDraggables.forEach((x) => {
+    // x.addEventListener("drag", (e) => console.log(e));
+    // x.addEventListener(
+    //   "dragstart",
+    //   (e) =>
+    //     (e.target.outerHTML = `<div class="task-container__placeholder"></div>`)
+    // );
+    x.addEventListener("dragenter", (e) => dragEnter(e));
+    x.addEventListener("dragover", (e) => e.preventDefault());
+    // x.addEventListener("drop", (e) => console.log("drop", e.target));
+    x.addEventListener("dragleave", (e) => dragLeave(e));
+  });
+};
+
 //Render todos
 
 const renderTodos = function () {
@@ -68,26 +103,27 @@ const renderTodos = function () {
   filter.forEach((x, i) =>
     todosFeild.insertAdjacentHTML(
       "beforeend",
-      `<form class="task-container" autocomplete="off" order = ${i}>
+      `<form class="task-container" autocomplete="off" order = ${i} draggable="true">
       <label class="task-left">
-        <input type="checkbox" class="checkbox" name="checkbox" ${
-          x.completed ? "checked" : ""
-        }/>
-        <p class="task-text ${x.completed ? "task-text__checked" : ""}">
-          ${x.item}
-        </p>
+      <input type="checkbox" class="checkbox" name="checkbox" ${
+        x.completed ? "checked" : ""
+      }/>
+      <p class="task-text ${x.completed ? "task-text__checked" : ""}">
+      ${x.item}
+      </p>
       </label>
       <a href="#" class="delete-todo-link">
-        <img
-          class="close-icon"
-          src="images/icon-cross.svg"
-          alt="delete todo"
+      <img
+      class="close-icon"
+      src="images/icon-cross.svg"
+      alt="delete todo"
       /></a>
-    </form>
-  `
+      </form>
+      `
     )
   );
   updateCounter();
+  attachDragEvents();
 };
 
 // checkbox mechanic
@@ -108,8 +144,8 @@ listenClick(mainFeild, ".delete-todo-link", (e) => {
   e.preventDefault();
   let todoOrder =
     e.target.localName === "img"
-      ? e.target.parentElement.parentElement.attributes.order.value
-      : e.target.parentElement.attributes.order.value;
+      ? +e.target.parentElement.parentElement.attributes.order.value
+      : +e.target.parentElement.attributes.order.value;
   data.splice(todoOrder, 1);
   renderTodos();
   setLocalStorage(data);
@@ -149,5 +185,8 @@ toggleBtnList.forEach((x) => {
   });
 });
 
+//
+
+// init
 adjustLocalStorage();
 renderTodos();

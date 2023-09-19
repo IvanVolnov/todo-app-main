@@ -15,6 +15,7 @@
   --color-text-hover: hsl(235, 19%, 35%);
   --color-border-task: hsla(236, 32%, 92%, 1);
   --color-block-shadow: rgba(194, 195, 214, 0.5);
+  --color-placeholder: hsla(233, 11%, 84%, 1);
   --img-background-mobile: url(images/bg-mobile-light.jpg);
   --img-background-desktop: url(images/bg-desktop-light.jpg);
   --img-mode-toggler: url(images/icon-moon.svg);
@@ -29,6 +30,7 @@
   --color-text-hover: hsla(236, 32%, 92%, 1);
   --color-border-task: hsla(237, 14%, 26%, 1);
   --color-block-shadow: rgba(0, 0, 0, 0.5);
+  --color-placeholder: hsla(237, 14%, 26%, 1);
   --img-background-mobile: url(images/bg-mobile-dark.jpg);
   --img-background-desktop: url(images/bg-desktop-dark.jpg);
   --img-mode-toggler: url(images/icon-sun.svg);
@@ -172,6 +174,7 @@ main {
 }
 /* Tasks */
 .task-container {
+  cursor: grab;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -179,6 +182,19 @@ main {
   width: 100%;
   border-bottom: 1px solid var(--color-border-task);
 }
+/* Drag and drop styles */
+.task-container__placeholder {
+  background-color: var(--color-placeholder);
+  height: 2.57rem;
+  margin: 1rem;
+  border-radius: 0.41667rem;
+}
+
+.dragged {
+  opacity: 1;
+}
+
+/* checkboxes */
 
 input[type="checkbox"] {
   /* Add if not using autoprefixer */
