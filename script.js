@@ -52,20 +52,31 @@ const updateCounter = function () {
 
 // Drag and Drop
 
+let draggedEl;
+const dragStart = function (e) {
+  console.log("dragstart", e.target);
+  draggedEl = e.target;
+  console.log("dragged el", draggedEl);
+  e.target.innerHTML = `<div class="task-container__placeholder"></div>`;
+};
+
 const dragEnter = function (e) {
   const index = +e.target.getAttribute("order");
   console.log("dragenter", index);
-  e.target.insertAdjacentHTML(
-    "beforebegin",
-    `<div class="task-container__placeholder"></div>`
-  );
-  // data.splice(index, 0, "sfdgfds");
+  // e.target.insertAdjacentHTML(
+  //   "beforebegin",
+  //   `<div class="task-container__placeholder"></div>`
+  // );
+  // allDraggables.splice(index, 0, "sfdgfds");
   // renderTodos();
 };
 
 const dragLeave = function (e) {
-  console.log("dragleave", e.target);
-  e.target.previousSibling.innerHTML = "";
+  console.log("dragleave", e.target, e.target.previousElementSibling);
+  const index = +e.target.getAttribute("order");
+  // if (e.target.previousSibling) {
+  //   e.target.previousSibling.innerHTML = `<div class="task-container__placeholder"></div>`;
+  // }
 };
 
 const attachDragEvents = function () {
@@ -77,9 +88,10 @@ const attachDragEvents = function () {
     //   (e) =>
     //     (e.target.outerHTML = `<div class="task-container__placeholder"></div>`)
     // );
+    x.addEventListener("dragstart", (e) => dragStart(e));
     x.addEventListener("dragenter", (e) => dragEnter(e));
     x.addEventListener("dragover", (e) => e.preventDefault());
-    // x.addEventListener("drop", (e) => console.log("drop", e.target));
+    x.addEventListener("drop", (e) => console.log("drop", e.target));
     x.addEventListener("dragleave", (e) => dragLeave(e));
   });
 };
