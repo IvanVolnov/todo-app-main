@@ -52,48 +52,31 @@ const updateCounter = function () {
 
 // Drag and Drop
 
-let draggedEl;
-const dragStart = function (e) {
-  console.log("dragstart", e.target);
-  draggedEl = e.target;
-  console.log("dragged el", draggedEl);
-  e.target.innerHTML = `<div class="task-container__placeholder"></div>`;
-};
-
-const dragEnter = function (e) {
-  const index = +e.target.getAttribute("order");
-  console.log("dragenter", index);
-  // e.target.insertAdjacentHTML(
-  //   "beforebegin",
-  //   `<div class="task-container__placeholder"></div>`
-  // );
-  // allDraggables.splice(index, 0, "sfdgfds");
-  // renderTodos();
-};
-
-const dragLeave = function (e) {
-  console.log("dragleave", e.target, e.target.previousElementSibling);
-  const index = +e.target.getAttribute("order");
-  // if (e.target.previousSibling) {
-  //   e.target.previousSibling.innerHTML = `<div class="task-container__placeholder"></div>`;
-  // }
+const initSortableList = (e) => {
+  const draggingItem = mainFeild.querySelector(".task-container__dragged");
+  const siblings = [
+    ...mainFeild.querySelectorAll(
+      ".task-container:not(.task-container__dragged)"
+    ),
+  ];
+  let nextSibling = siblings.find((el) => {
+    return e.pageY <= el.offsetTop + el.offsetHeight / 2;
+  });
+  console.log(e.clientY);
+  mainFeild.insertBefore(draggingItem, nextSibling);
 };
 
 const attachDragEvents = function () {
   const allDraggables = document.querySelectorAll(".task-container");
   allDraggables.forEach((x) => {
-    // x.addEventListener("drag", (e) => console.log(e));
-    // x.addEventListener(
-    //   "dragstart",
-    //   (e) =>
-    //     (e.target.outerHTML = `<div class="task-container__placeholder"></div>`)
-    // );
-    x.addEventListener("dragstart", (e) => dragStart(e));
-    x.addEventListener("dragenter", (e) => dragEnter(e));
-    x.addEventListener("dragover", (e) => e.preventDefault());
-    x.addEventListener("drop", (e) => console.log("drop", e.target));
-    x.addEventListener("dragleave", (e) => dragLeave(e));
+    x.addEventListener("dragstart", () =>
+      setTimeout(() => x.classList.add("task-container__dragged"), 0)
+    );
+    x.addEventListener("dragend", () =>
+      x.classList.remove("task-container__dragged")
+    );
   });
+  mainFeild.addEventListener("dragover", initSortableList);
 };
 
 //Render todos
