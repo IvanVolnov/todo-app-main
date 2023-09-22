@@ -20,12 +20,6 @@ const sampleData = [
   { item: "Read for 1 hour", completed: false },
   { item: "Pick up groceries", completed: false },
   { item: "Complete Todo App on Frontend Mentor", completed: false },
-  { item: "attend a meeting", completed: true },
-  { item: "cook dinner", completed: false },
-  { item: "plan a vacation", completed: true },
-  { item: "do the laundry", completed: true },
-  { item: "visit the dentist", completed: false },
-  { item: "call a friend", completed: true },
 ];
 
 // LocalStorage operations
@@ -62,7 +56,6 @@ const initSortableList = (e) => {
   let nextSibling = siblings.find((el) => {
     return e.pageY <= el.offsetTop + el.offsetHeight / 2;
   });
-  console.log(e.clientY);
   mainFeild.insertBefore(draggingItem, nextSibling);
 };
 
@@ -72,9 +65,15 @@ const attachDragEvents = function () {
     x.addEventListener("dragstart", () =>
       setTimeout(() => x.classList.add("task-container__dragged"), 0)
     );
-    x.addEventListener("dragend", () =>
-      x.classList.remove("task-container__dragged")
-    );
+    x.addEventListener("dragend", () => {
+      x.classList.remove("task-container__dragged");
+      const oldIndex = x.getAttribute("order");
+      const grabbedItem = data[oldIndex];
+      const newIndex = [...x.parentElement.children].indexOf(x);
+      data.splice(oldIndex, 1);
+      data.splice(newIndex, 0, grabbedItem);
+      setLocalStorage(data);
+    });
   });
   mainFeild.addEventListener("dragover", initSortableList);
 };
@@ -166,6 +165,7 @@ btnClearCompleted.addEventListener("click", (e) => {
   e.preventDefault();
   data = data.filter((x) => !x.completed);
   renderTodos();
+  setLocalStorage(data);
 });
 
 // toggle filter buttons

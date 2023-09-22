@@ -184,15 +184,12 @@ main {
 /* Drag and drop styles */
 .task-container__dragged {
   background-color: var(--color-placeholder);
+  border-radius: 0.41667rem;
 }
 
-.task-container__dragged .task-left,
-.delete-todo-link {
+.task-container__dragged .task-left {
   opacity: 0;
 }
-/* .dragged {
-  opacity: 1;
-} */
 
 /* checkboxes */
 
@@ -282,8 +279,7 @@ input[type="checkbox"]:checked::before {
 /* change behavior for hover devises */
 
 @media (any-hover: hover) {
-  a:hover,
-  :focus-visible {
+  a:hover {
     color: var(--color-text-hover);
   }
   .checkbox {
