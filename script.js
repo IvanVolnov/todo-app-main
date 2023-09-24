@@ -47,6 +47,7 @@ const updateCounter = function () {
 // Drag and Drop
 
 const initSortableList = (e) => {
+  e.preventDefault();
   const draggingItem = mainFeild.querySelector(".task-container__dragged");
   const siblings = [
     ...mainFeild.querySelectorAll(
